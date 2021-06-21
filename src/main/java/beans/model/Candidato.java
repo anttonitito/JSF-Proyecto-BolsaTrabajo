@@ -3,14 +3,18 @@ package beans.model;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 @Named
 @RequestScoped
 public class Candidato {
 
 	private String nombre = "Introduce tu nombre: ";
-
+	private String apellido = "roco";
 	
+	Logger log = LogManager.getRootLogger();
 	
 	
 	public String getNombre() {
@@ -19,7 +23,19 @@ public class Candidato {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+		log.info("Modificando la propiedad de nombre : " + this.nombre);
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	} 
+	
+	
+	
 	
 	
 }
